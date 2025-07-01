@@ -36,7 +36,7 @@ describe("PostItem", () => {
   it("renders post information correctly", () => {
     render(<PostItem post={mockPost} />);
 
-    // Check if title is rendered
+    // Check if tile is renderd
     expect(screen.getByText("Test Post")).toBeInTheDocument();
 
     // Check if author is rendered

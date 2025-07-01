@@ -40,10 +40,8 @@ describe('Reddit API', () => {
         })
       };
 
-      // Mock both sticky and regular post fetches
-      (global.fetch as jest.Mock)
-        .mockImplementationOnce(() => Promise.resolve(mockResponse))
-        .mockImplementationOnce(() => Promise.resolve(mockResponse));
+      // Mock the fetch call
+      (global.fetch as jest.Mock).mockImplementationOnce(() => Promise.resolve(mockResponse));
 
       const result = await fetchPosts({ subreddit: 'javascript', limit: 10 });
 
@@ -99,7 +97,8 @@ describe('Reddit API', () => {
                     thumbnail: 'https://example.com/image.jpg',
                     subreddit: 'javascript',
                     permalink: '/r/javascript/comments/123/test_post',
-                    url: 'https://reddit.com/r/javascript/comments/123/test_post'
+                    url: 'https://reddit.com/r/javascript/comments/123/test_post',
+                    stickied: false
                   }
                 }
               ]
@@ -123,7 +122,8 @@ describe('Reddit API', () => {
         thumbnail: 'https://example.com/image.jpg',
         subreddit: 'javascript',
         permalink: '/r/javascript/comments/123/test_post',
-        url: 'https://reddit.com/r/javascript/comments/123/test_post'
+        url: 'https://reddit.com/r/javascript/comments/123/test_post',
+        is_sticky: false
       });
     });
 

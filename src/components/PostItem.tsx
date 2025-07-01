@@ -44,7 +44,7 @@ export default function PostItem({ post }: PostItemProps) {
           </Text>
         )}
 
-        {post.thumbnail && (
+        {post.thumbnail && post.thumbnail !== 'self' && post.thumbnail !== 'default' && post.thumbnail !== 'nsfw' && post.thumbnail !== 'spoiler' && (
           <Box position="relative" width="100%" height="200px">
             <NextImage
               src={post.thumbnail}
